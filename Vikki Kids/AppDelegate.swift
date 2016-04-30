@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+  //===================================//
+  // MARK: - Глобальные переменные для AppDelegate
+  //===================================//
+  
   var window: UIWindow?
 
-
+  //===================================//
+  // MARK: - Стандартные методы AppDelegate
+  //===================================//
+  
+  
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    
+    // Делает статус бар белым
+    UIApplication.sharedApplication().statusBarStyle = .LightContent
+    
     return true
   }
 
@@ -40,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
-
 
 }
 
