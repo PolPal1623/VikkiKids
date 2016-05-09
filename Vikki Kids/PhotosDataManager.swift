@@ -19,7 +19,7 @@ class PhotosDataManager {
     
     static let sharedManager = PhotosDataManager() // Переменная для передачи данных в другие классы
     private var photos = [(name: "0", photoURLString: "https://www.nps.gov/common/uploads/photogallery/imr/park/glac/F275052A-155D-451F-67BE9145166C8210/F275052A-155D-451F-67BE9145166C8210-large.jpg")] // Запасной блок для старта приложения или отсутствия интернета
-    var testPhotos = ViewController.sharedManager.arrayURL
+    var URLPhotos = ViewController.sharedManager.arrayURL
     
     //===================================//
     // MARK: - Кастомные методы
@@ -44,8 +44,8 @@ class PhotosDataManager {
     
     //-----------------------------------// Метод для передачи адресов и имен изображений в другие классы
     func allPhotos() -> [(name: String, photoURLString: String)] {
-        if testPhotos.count != 0 {
-            return testPhotos
+        if URLPhotos.count != 0 {
+            return URLPhotos
         } else {
             let realm = try! Realm()
             if let URLString = realm.objects(SaveJPG).last?.lastJPG {

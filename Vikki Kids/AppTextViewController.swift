@@ -27,7 +27,7 @@ class AppTextViewController: UIViewController {
     //===================================//
     
     @IBAction func menuButtonPressed(sender: AnyObject) {
-        showMenuVC(menuVC)
+        showMenuVC(menuVC) // Метод для вызова перехода на другой экран поверх этого
     }
     
     //===================================//

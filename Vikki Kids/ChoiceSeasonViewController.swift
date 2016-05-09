@@ -16,6 +16,12 @@ class ChoiceSeasonViewController: UIViewController {
     //===================================//
     
     var lastVersionKit: SaveListRealmForVC! // Переменная для сохранения последней сборки конструктора
+    var hoodForm = "Round" // Форма капюшона
+    var earsForm = "None" // Форма ушей
+    var mainColor = "0" // Основной цвет
+    var color = "0" // Подкладка
+    var buttonsColor = "0" // Пуговицы
+    var picture = "0" // Принт
     
     //===================================//
     // MARK: - Кастомные методы
@@ -26,13 +32,14 @@ class ChoiceSeasonViewController: UIViewController {
         let realm = try! Realm()
         // Проверка на наличие данных в памяти
         if let lastVersion = realm.objects(SaveListRealmForVC).last {
-            let hoodForm = lastVersion.hoodForm // Форма капюшона
-            let earsForm = lastVersion.earsForm // Форма ушей
-            let mainColor = lastVersion.mainColor
-            let color = "0" // Подкладка
-            let buttonsColor = lastVersion.buttonsColor // Пуговицы
-            let picture = lastVersion.picture // Принт
-            
+            hoodForm = lastVersion.hoodForm // Форма капюшона
+            earsForm = lastVersion.earsForm // Форма ушей
+            mainColor = lastVersion.mainColor
+            color = "0" // Подкладка
+            buttonsColor = lastVersion.buttonsColor // Пуговицы
+            picture = lastVersion.picture // Принт
+        }
+        
             lastVersionKit = SaveListRealmForVC() // Константа типа SaveListRealmForVC для записи в память
             lastVersionKit.id = 0
             lastVersionKit.season = season
@@ -47,7 +54,6 @@ class ChoiceSeasonViewController: UIViewController {
                 realm.add(lastVersionKit, update: true)
             }
         }
-    }
     
     //===================================//
     // MARK: - IBAction на нашей Scene ViewController

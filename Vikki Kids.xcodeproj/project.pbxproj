@@ -14,6 +14,7 @@
 		223838FC1CB9FE78002A9901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223838FA1CB9FE78002A9901 /* Main.storyboard */; };
 		223838FE1CB9FE78002A9901 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 223838FD1CB9FE78002A9901 /* Assets.xcassets */; };
 		223839011CB9FE78002A9901 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223838FF1CB9FE78002A9901 /* LaunchScreen.storyboard */; };
+		224213811CD8BDB300B56F85 /* JSONFile.json in Resources */ = {isa = PBXBuildFile; fileRef = 224213801CD8BDB300B56F85 /* JSONFile.json */; };
 		225716CF1CC7663B005AF3AE /* AppTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225716CE1CC7663B005AF3AE /* AppTextViewController.swift */; };
 		225C2E611CCA6F5D007E242E /* ChoiceSeasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C2E601CCA6F5D007E242E /* ChoiceSeasonViewController.swift */; };
 		225C2E631CCA6F74007E242E /* HelpChoiceSeasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C2E621CCA6F74007E242E /* HelpChoiceSeasonViewController.swift */; };
@@ -43,6 +44,7 @@
 		223838FD1CB9FE78002A9901 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		223839001CB9FE78002A9901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		223839021CB9FE78002A9901 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		224213801CD8BDB300B56F85 /* JSONFile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JSONFile.json; sourceTree = "<group>"; };
 		225716CE1CC7663B005AF3AE /* AppTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTextViewController.swift; sourceTree = "<group>"; };
 		225C2E601CCA6F5D007E242E /* ChoiceSeasonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceSeasonViewController.swift; sourceTree = "<group>"; };
 		225C2E621CCA6F74007E242E /* HelpChoiceSeasonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpChoiceSeasonViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				223838FA1CB9FE78002A9901 /* Main.storyboard */,
 				223838FD1CB9FE78002A9901 /* Assets.xcassets */,
 				223838FF1CB9FE78002A9901 /* LaunchScreen.storyboard */,
+				224213801CD8BDB300B56F85 /* JSONFile.json */,
 				223839021CB9FE78002A9901 /* Info.plist */,
 			);
 			path = "Vikki Kids";
@@ -218,6 +221,7 @@
 				223839011CB9FE78002A9901 /* LaunchScreen.storyboard in Resources */,
 				223838FE1CB9FE78002A9901 /* Assets.xcassets in Resources */,
 				223838FC1CB9FE78002A9901 /* Main.storyboard in Resources */,
+				224213811CD8BDB300B56F85 /* JSONFile.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

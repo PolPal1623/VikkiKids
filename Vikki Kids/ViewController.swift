@@ -11,6 +11,7 @@ import RealmSwift
 import Alamofire
 import AlamofireImage
 import Kanna
+import SwiftyJSON
 
 // Класс SaveListRealmForVC для объектов хранимых в памяти
 class SaveListRealmForVC: Object {
@@ -47,9 +48,12 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
     //===================================//
     // MARK: - Глобальные переменные для ViewController
     //===================================//
-    var arrayURL = [(name: String, photoURLString: String)]() // Переменная для парсинга адресов изображения
     static let sharedManager = ViewController() // Переменная для передачи данных в другие классы
+    
+    var arrayURL = [(name: String, photoURLString: String)]() // Переменная для парсинга адресов изображения
+    var arrayJSON = [(name: String, photoURLString: String)]() // Переменная для парсинга адресов изображения
     var nameArray = 0 // Переменная для присвоения имен изображениям типа 0,1,2,3...
+    var nameArrayJSON = 0 // Переменная для присвоения имен изображениям типа 0,1,2,3...
     
     var request: Request? // Переменная для запроса изображений из сети
     var imageMainColorURL: (name: String, photoURLString: String)! // Изображение из сети
@@ -64,7 +68,7 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
     var counterEarsForm = 0 // Счетчик для выбора типа ушей
     var counterHood = 0 // Счетчик для выбора типа шапки
     
-    var season = "Summer" // Сезон
+    var season = " " // Сезон
     var hoodForm = "Round" // Форма капюшона
     var earsForm = "None" // Форма ушей
     var mainColor = "0" // Основной цвет
@@ -117,7 +121,6 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
     
     //-----------------------------------// Метод animationMainMenuButton для анимирования кнопок меню
     @IBAction func animationMainMenuButton(sender: AnyObject) {
-        
         //----------------- Цикл выбора направления анамации развернуть/свернуть
         if repiatAnimationMainMenuButton {
             animationMainMenuUp()
@@ -127,25 +130,26 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
         repiatAnimationMainMenuButton = !repiatAnimationMainMenuButton
     }
     
+    //-----------------------------------// Метод для выбора сезона
+    @IBAction func SeasonButtonPressed(sender: AnyObject) {
+        
+    }
+    
     //-----------------------------------// Метод для выбора типа ушей
     @IBAction func earsButtonPressed(sender: AnyObject) {
-        
-        counterEarsForm += 1
-        
-        switch counterEarsForm {
-        case 0: earsForm = "None"
-        case 1: earsForm = "Bear"
-        case 2: earsForm = "Mikki"
-        case 3: earsForm = "Cat"
-        case 4: earsForm = "Owl"
-        case 5: earsForm = "Rabbit"; counterEarsForm = -1
-        default : earsForm = "None"
-        }
-        
-        saveChangeKit() // Метод сохраняет все изменения в память
-        
-        viewWillAppear(false)
-        
+
+            counterEarsForm += 1
+            switch counterEarsForm {
+            case 0: earsForm = "None"
+            case 1: earsForm = "Bear"
+            case 2: earsForm = "Mikki"
+            case 3: earsForm = "Cat"
+            case 4: earsForm = "Owl"
+            case 5: earsForm = "Rabbit"; counterEarsForm = -1
+            default : earsForm = "None"
+            }
+            saveChangeKit() // Метод сохраняет все изменения в память
+            viewWillAppear(false) // Метод запускает viewWillAppear
     }
     
     //-----------------------------------// Метод для выбора типа шапки
@@ -159,18 +163,15 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
         case 2: hoodForm = "Zipper"; counterHood = -1
         default : hoodForm = "Round"
         }
-
-        
         saveChangeKit() // Метод сохраняет все изменения в память
-        
-        viewWillAppear(false)
+        viewWillAppear(false) // Метод запускает viewWillAppear
     }
     
     //-----------------------------------// Метод для выбора основной ткани
     @IBAction func mainColorButtonPressed(sender: AnyObject) {
-        parsingMainColorURL()
-        PhotosDataManager.sharedManager.testPhotos = arrayURL
-        //print(arrayURL)
+        //parsingMainColorURL() // Метод для создания словаря из ссылок на изображение ткани
+        //parsingMainColorJSON() // Метод для создания словаря из ссылок JSON
+        PhotosDataManager.sharedManager.URLPhotos = arrayURL // Присвоение списка адресов из запроса для загрузки
     }
     
     //-----------------------------------// Метод для выбора цвета подкладки
@@ -191,17 +192,18 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
     
     //-----------------------------------// Метод для выбора основного меню
     @IBAction func mainMenuButtonPressed(sender: AnyObject) {
-        
         //------------------ Показать меню поверх этого
         showMenuVC(menuVC)
         let navigationBar = self.navigationController?.navigationBar
         navigationBar?.hidden = true
-        
     }
     
     //-----------------------------------// Метод для создания скриншота
     @IBAction func cameraButtonPressed(sender: AnyObject) {
-        
+        //-----------------------------------// Условие совершения выбора сезона
+        if season == " " {
+            alertForSeason() // Вывод сообщения о выборе сезона
+        } else {
         //-----------------------------------//Действия перед снимком
         let heightAnimationsButtons = earsView.frame.size.height + earsView.frame.size.height // Расстояние на которое опускаются кнопки
         let navigationBar = self.navigationController?.navigationBar
@@ -276,13 +278,11 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
             self.cameraView.center.y -= heightAnimationsButtons
             navigationBar?.center.y += heightAnimationsButtons
             }, completion: nil)
-        
+            
+        //----------------- Сообщение об удачном создании конверта
         alert("Ваш конверт сохранён", message: "Для заказа данного коверта перейдите в раздел Галерея и выберете его ")
+        }
     }
-    
-    //===================================//
-    // MARK: - Системные методы
-    //===================================//
     
     //===================================//
     // MARK: - Кастомные методы
@@ -297,6 +297,37 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
         self.presentViewController(alert, animated: true, completion: nil) // добавляем AlertController на View Controller
     }
     
+    //-----------------------------------// Метод для создания сообщения при первом включении приложения и не выборе сезона
+    func alertForSeason() {
+        let alert = UIAlertController(title: "Предупреждение", message: "Для начала создания своего конверта нужно определится с сезоном", preferredStyle: .Alert)
+        //------------------ AlertAction for AlertController
+        let actionOk = UIAlertAction(title: "Ok", style: .Cancel) { (action: UIAlertAction) -> Void in }
+        let actionSeason = UIAlertAction(title: "Выбрать сезон", style: .Default) { (action: UIAlertAction) -> Void in
+        self.seasonButton.sendActionsForControlEvents(UIControlEvents.TouchUpInside) // Нажатие на кнопку seasonButton
+        }
+        alert.addAction(actionOk) // AlertAction добавляем в AlertController
+         alert.addAction(actionSeason) // AlertAction добавляем в AlertController
+        self.presentViewController(alert, animated: true, completion: nil) // добавляем AlertController на View Controller
+    }
+    
+        //-----------------------------------// Метод для создания словаря из ссылок JSON
+    func parsingMainColorJSON() -> [(name: String, photoURLString: String)] {
+        
+        let file = NSBundle.mainBundle().pathForResource("JSONFile", ofType: "json") as String!
+        let data = NSData(contentsOfFile: file) as NSData!
+        let clearJSON = JSON(data: data, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        let JSONarray = clearJSON["ImageMainColor"]
+        
+        for index in 1...JSONarray.count {
+            let name = String(self.nameArray)
+            self.nameArray = index
+            let namePlusJSONString  = (name: name, photoURLString: String(JSONarray[index - 1]))
+            self.arrayURL.append(namePlusJSONString)
+        }
+        return arrayURL
+    }
+    
+    /*
         //-----------------------------------// Метод для создания словаря из ссылок на изображение ткани
     func parsingMainColorURL () -> [(name: String, photoURLString: String)] {
             let myURLAdress = "https://www.nps.gov/media/photo/gallery.htm?id=F274C1CA-155D-451F-67F12CC510281EFF" // Адрес для парсинга
@@ -327,6 +358,7 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
         URLTask.resume()
         return arrayURL
         }
+    */
     
     //-----------------------------------// Метод запуска загрузки выбранного изображения
     func configure( ) {
@@ -409,6 +441,8 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
         //----------------- Сборка параметров в тип изображений
         if season == "DemiSeason" {
             earsImageName = "Winter_Ears_\(color)_\(earsForm)" // Тип ушей и цвет подкладки
+        } else if season == " "{
+            earsImageName = "Summer_Ears_\(color)_\(earsForm)" // Тип ушей и цвет подкладки
         } else {
             earsImageName = "\(season)_Ears_\(color)_\(earsForm)" // Тип ушей и цвет подкладки
         }
@@ -426,10 +460,7 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
         fonImage.image = UIImage(named: fonImageName)
         buttonImage.image = UIImage(named: buttonImageName)
         printImage.image = UIImage(named: pictureName)
-        if let season = realm.objects(SaveListRealmForVC).last?.season {
-         seasonChoiceImage.image = UIImage(named: "season_\(season)")
-        }
-        
+        seasonChoiceImage.image = UIImage(named: "season_\(season)")
     }
     
     //-----------------------------------// Метод убирает основное меню
@@ -541,7 +572,8 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
         //------------------ Перенос всех свойств класса этому экземпляру
         super.viewDidLoad()
         
-        parsingMainColorURL()
+        //parsingMainColorURL() // Метод для создания словаря из ссылок на изображение ткани
+        parsingMainColorJSON() // Метод для создания словаря из ссылок JSON
        
         menuVC = storyboard?.instantiateViewControllerWithIdentifier("menuViewController") // Инициализация menuVC
     }
@@ -552,9 +584,8 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
         //------------------ Перенос всех свойств класса этому экземпляру
         super.viewWillAppear(animated)
         
-        nameImage() // Метод распределяет параметры для конверта по названиям изображений
-        
-        configure()
+        nameImage() // Метод распределяет параметры для конверта по названиям изображений        
+        configure() // Метод запуска загрузки выбранного изображения
         
         //-----------------------------------// Настройка navigationBar
         let navigationBar = self.navigationController?.navigationBar

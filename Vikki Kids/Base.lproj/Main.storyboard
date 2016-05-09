@@ -98,6 +98,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tw-BB-EJZ">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <connections>
+                                            <action selector="SeasonButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CNc-hJ-PPu"/>
                                             <segue destination="wOe-s0-5wE" kind="show" id="tgC-za-eoi"/>
                                         </connections>
                                     </button>
@@ -443,7 +444,7 @@
         <!--Choice Season View Controller-->
         <scene sceneID="6GN-Gl-f8m">
             <objects>
-                <viewController id="wOe-s0-5wE" customClass="ChoiceSeasonViewController" customModule="Vikki_Kids" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChoiceSeasonVC" id="wOe-s0-5wE" customClass="ChoiceSeasonViewController" customModule="Vikki_Kids" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IZL-U3-ZUo"/>
                         <viewControllerLayoutGuide type="bottom" id="3HP-xV-Odd"/>
@@ -584,48 +585,65 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fon" translatesAutoresizingMaskIntoConstraints="NO" id="wDJ-VA-o2Q">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Np-P4-h6H">
+                            <pickerView contentMode="scaleToFill" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Np-P4-h6H">
                                 <rect key="frame" x="0.0" y="200" width="600" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0Np-P4-h6H" secondAttribute="height" multiplier="3:1" id="mHG-43-dgQ"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите свой срок на сегодняшний день и нажмите &quot;Получить совет&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GId-kv-Dso">
-                                <rect key="frame" x="0.0" y="91" width="600" height="101"/>
+                                <rect key="frame" x="20" y="91" width="560" height="101"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="GId-kv-Dso" secondAttribute="height" multiplier="600:101" id="INh-Or-xr0"/>
+                                    <constraint firstAttribute="width" secondItem="GId-kv-Dso" secondAttribute="height" multiplier="600:101" constant="-40" id="INh-Or-xr0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBF-RE-W2U">
-                                <rect key="frame" x="244" y="396" width="113" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBF-RE-W2U">
+                                <rect key="frame" x="233" y="396" width="135" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NBF-RE-W2U" secondAttribute="height" multiplier="113:25" id="Trf-cK-6sk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Получить совет"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="XFg-yI-GLc" eventType="touchUpInside" id="Ujw-5g-zdy"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCY-Du-yL6">
-                                <rect key="frame" x="279" y="502" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCY-Du-yL6">
+                                <rect key="frame" x="27" y="446" width="546" height="75"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GId-kv-Dso" firstAttribute="height" secondItem="wDJ-VA-o2Q" secondAttribute="height" multiplier="1:6" constant="1" id="0yD-Jp-KKS"/>
+                            <constraint firstItem="PCY-Du-yL6" firstAttribute="top" secondItem="NBF-RE-W2U" secondAttribute="bottom" constant="20" id="1sd-Bm-oty"/>
                             <constraint firstItem="0Np-P4-h6H" firstAttribute="centerY" secondItem="j7Y-Cx-p18" secondAttribute="centerY" id="8HN-Fu-SXI"/>
+                            <constraint firstItem="GId-kv-Dso" firstAttribute="width" secondItem="wDJ-VA-o2Q" secondAttribute="width" multiplier="1:1.07" id="8KP-zm-7ZQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wDJ-VA-o2Q" secondAttribute="trailing" constant="-20" id="D0K-8g-Dtl"/>
                             <constraint firstItem="GId-kv-Dso" firstAttribute="centerY" secondItem="j7Y-Cx-p18" secondAttribute="centerY" constant="-158" id="ICF-je-ylw"/>
                             <constraint firstItem="PsC-cQ-jTV" firstAttribute="top" secondItem="wDJ-VA-o2Q" secondAttribute="bottom" id="JAQ-8M-jCa"/>
+                            <constraint firstItem="PCY-Du-yL6" firstAttribute="centerX" secondItem="j7Y-Cx-p18" secondAttribute="centerX" id="LM8-bI-bKl"/>
                             <constraint firstItem="wDJ-VA-o2Q" firstAttribute="leading" secondItem="j7Y-Cx-p18" secondAttribute="leadingMargin" constant="-20" id="X9V-Hm-mPZ"/>
                             <constraint firstItem="0Np-P4-h6H" firstAttribute="centerX" secondItem="j7Y-Cx-p18" secondAttribute="centerX" id="XIM-Ll-dyY"/>
+                            <constraint firstItem="PCY-Du-yL6" firstAttribute="width" secondItem="wDJ-VA-o2Q" secondAttribute="width" multiplier="1:1.1" id="a47-8z-jRt"/>
+                            <constraint firstItem="NBF-RE-W2U" firstAttribute="centerX" secondItem="j7Y-Cx-p18" secondAttribute="centerX" id="cPb-VZ-QKH"/>
                             <constraint firstItem="wDJ-VA-o2Q" firstAttribute="top" secondItem="j7Y-Cx-p18" secondAttribute="topMargin" id="dTO-x6-d2O"/>
+                            <constraint firstItem="NBF-RE-W2U" firstAttribute="height" secondItem="wDJ-VA-o2Q" secondAttribute="height" multiplier="1:20" id="gej-MD-PLw"/>
                             <constraint firstItem="0Np-P4-h6H" firstAttribute="height" secondItem="wDJ-VA-o2Q" secondAttribute="height" multiplier="1:3" id="k6a-kn-VxF"/>
-                            <constraint firstItem="0Np-P4-h6H" firstAttribute="leading" secondItem="j7Y-Cx-p18" secondAttribute="leadingMargin" constant="-20" id="kyF-ed-2cb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0Np-P4-h6H" secondAttribute="trailing" constant="-20" id="psC-RW-E3t"/>
+                            <constraint firstItem="PCY-Du-yL6" firstAttribute="height" secondItem="wDJ-VA-o2Q" secondAttribute="height" multiplier="1:8" id="naD-Eg-28R"/>
                             <constraint firstItem="GId-kv-Dso" firstAttribute="centerX" secondItem="j7Y-Cx-p18" secondAttribute="centerX" id="s3T-uC-5xb"/>
+                            <constraint firstItem="NBF-RE-W2U" firstAttribute="top" secondItem="0Np-P4-h6H" secondAttribute="bottom" constant="-4" id="yoi-kJ-mFg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="PickerViewWeek" destination="0Np-P4-h6H" id="BxH-Qt-nnV"/>
+                        <outlet property="labelForSeason" destination="PCY-Du-yL6" id="bz0-eg-ht4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rJY-D7-cbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
