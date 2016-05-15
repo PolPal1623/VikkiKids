@@ -2,7 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "season_Summer.pdf"
+      "filename" : "season_Summer.pdf",
+      "scale" : "1x"
     }
   ],
   "info" : {

@@ -21,6 +21,8 @@
 		225C2E651CCA7BFB007E242E /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C2E641CCA7BFB007E242E /* SavedCollectionViewController.swift */; };
 		225C2E671CCA7C9B007E242E /* SavedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C2E661CCA7C9B007E242E /* SavedCollectionViewCell.swift */; };
 		225E06C31CCF9CBC009FE2A9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225E06C21CCF9CBC009FE2A9 /* MessageUI.framework */; };
+		2277548E1CE8AE7F00AA7589 /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277548D1CE8AE7F00AA7589 /* MailViewController.swift */; };
+		227754901CE8B74E00AA7589 /* foto.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2277548F1CE8B74E00AA7589 /* foto.wav */; };
 		22A176401CC5013D008CB191 /* MainColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A1763F1CC5013D008CB191 /* MainColorCollectionViewController.swift */; };
 		22A176421CC50156008CB191 /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A176411CC50156008CB191 /* ColorCollectionViewController.swift */; };
 		22A176441CC50163008CB191 /* PrintCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A176431CC50163008CB191 /* PrintCollectionViewController.swift */; };
@@ -51,6 +53,8 @@
 		225C2E641CCA7BFB007E242E /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		225C2E661CCA7C9B007E242E /* SavedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewCell.swift; sourceTree = "<group>"; };
 		225E06C21CCF9CBC009FE2A9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2277548D1CE8AE7F00AA7589 /* MailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
+		2277548F1CE8B74E00AA7589 /* foto.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = foto.wav; path = ../../../../../../Downloads/foto.wav; sourceTree = "<group>"; };
 		22A1763F1CC5013D008CB191 /* MainColorCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainColorCollectionViewController.swift; sourceTree = "<group>"; };
 		22A176411CC50156008CB191 /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
 		22A176431CC50163008CB191 /* PrintCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintCollectionViewController.swift; sourceTree = "<group>"; };
@@ -100,12 +104,14 @@
 				223838F81CB9FE78002A9901 /* ViewController.swift */,
 				222A785D1CC6995800B10AAA /* MenuViewController.swift */,
 				225716CE1CC7663B005AF3AE /* AppTextViewController.swift */,
+				2277548D1CE8AE7F00AA7589 /* MailViewController.swift */,
 				225C2E601CCA6F5D007E242E /* ChoiceSeasonViewController.swift */,
 				225C2E621CCA6F74007E242E /* HelpChoiceSeasonViewController.swift */,
 				22A1764F1CC5037B008CB191 /* Collections */,
 				223838FA1CB9FE78002A9901 /* Main.storyboard */,
 				223838FD1CB9FE78002A9901 /* Assets.xcassets */,
 				223838FF1CB9FE78002A9901 /* LaunchScreen.storyboard */,
+				2277548F1CE8B74E00AA7589 /* foto.wav */,
 				224213801CD8BDB300B56F85 /* JSONFile.json */,
 				223839021CB9FE78002A9901 /* Info.plist */,
 			);
@@ -218,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227754901CE8B74E00AA7589 /* foto.wav in Resources */,
 				223839011CB9FE78002A9901 /* LaunchScreen.storyboard in Resources */,
 				223838FE1CB9FE78002A9901 /* Assets.xcassets in Resources */,
 				223838FC1CB9FE78002A9901 /* Main.storyboard in Resources */,
@@ -285,6 +292,7 @@
 				225C2E671CCA7C9B007E242E /* SavedCollectionViewCell.swift in Sources */,
 				225C2E611CCA6F5D007E242E /* ChoiceSeasonViewController.swift in Sources */,
 				22A176461CC501B5008CB191 /* ButtonsCollectionViewController.swift in Sources */,
+				2277548E1CE8AE7F00AA7589 /* MailViewController.swift in Sources */,
 				225C2E651CCA7BFB007E242E /* SavedCollectionViewController.swift in Sources */,
 				22A176401CC5013D008CB191 /* MainColorCollectionViewController.swift in Sources */,
 				222470D81CCB687700EE849E /* PhotosDataManager.swift in Sources */,

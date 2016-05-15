@@ -18,7 +18,7 @@ class PhotosDataManager {
     //===================================//
     
     static let sharedManager = PhotosDataManager() // Переменная для передачи данных в другие классы
-    private var photos = [(name: "0", photoURLString: "https://www.nps.gov/common/uploads/photogallery/imr/park/glac/F275052A-155D-451F-67BE9145166C8210/F275052A-155D-451F-67BE9145166C8210-large.jpg")] // Запасной блок для старта приложения или отсутствия интернета
+    private var photos = [(name: "0", photoURLString: "https://static.wixstatic.com/media/025640_6d801ca00cbb4399b8f89ef3334ce2d8.jpg/v1/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01/025640_6d801ca00cbb4399b8f89ef3334ce2d8.jpg")] // Запасной блок для старта приложения или отсутствия интернета
     var URLPhotos = ViewController.sharedManager.arrayURL
     
     //===================================//

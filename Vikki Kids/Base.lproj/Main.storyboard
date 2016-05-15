@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hmn-wA-aBw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hmn-wA-aBw">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -994,6 +994,105 @@
             </objects>
             <point key="canvasLocation" x="591" y="-277"/>
         </scene>
+        <!--Mail View Controller-->
+        <scene sceneID="DoX-LJ-ffp">
+            <objects>
+                <viewController id="T4J-5i-J59" customClass="MailViewController" customModule="Vikki_Kids" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jPY-5z-2Qi"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cw3-o4-TGT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KPg-Zn-S2o">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fon" translatesAutoresizingMaskIntoConstraints="NO" id="1VQ-cK-Twu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAI-Vn-lci">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="6A7-WR-Agz"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="e6I-dQ-K0R">
+                                        <barButtonItem key="leftBarButtonItem" image="MenuSettingsButton" id="qej-TB-IgJ">
+                                            <connections>
+                                                <action selector="menuButtonPressed:" destination="T4J-5i-J59" id="8FS-u7-1lI"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWV-ab-w38">
+                                <rect key="frame" x="180" y="390" width="240" height="30"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.52941176469999995" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iWV-ab-w38" secondAttribute="height" multiplier="120:15" id="dhn-xp-BuE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Написать VikkiKids"/>
+                                <connections>
+                                    <action selector="buttonVikkiKidsPressed:" destination="T4J-5i-J59" eventType="touchUpInside" id="7BY-nP-x2N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZj-Xq-NRo">
+                                <rect key="frame" x="180" y="470" width="240" height="30"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.52941176469999995" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jZj-Xq-NRo" secondAttribute="height" multiplier="120:15" id="lLf-0c-7dH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Написать Разработчику"/>
+                                <connections>
+                                    <action selector="buttonDeveloperPressed:" destination="T4J-5i-J59" eventType="touchUpInside" id="VTj-Gs-3Wi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTh-fb-kx3">
+                                <rect key="frame" x="20" y="84" width="560" height="296"/>
+                                <string key="text">Если вы хотите задать вопрос о создании конвертов, то нажмите "Написать VikkiKids", а если есть вопросы или предложения по работе приложения выберите "Написать Разработчику"</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iWV-ab-w38" firstAttribute="top" secondItem="gTh-fb-kx3" secondAttribute="bottom" constant="10" id="37e-BL-zGm"/>
+                            <constraint firstItem="gTh-fb-kx3" firstAttribute="leading" secondItem="KPg-Zn-S2o" secondAttribute="leadingMargin" constant="-1194" id="7YB-Il-dOZ"/>
+                            <constraint firstItem="jZj-Xq-NRo" firstAttribute="top" secondItem="iWV-ab-w38" secondAttribute="bottom" constant="50" id="ApO-KN-XTg"/>
+                            <constraint firstItem="iWV-ab-w38" firstAttribute="centerX" secondItem="KPg-Zn-S2o" secondAttribute="centerX" id="Bu7-XF-37x"/>
+                            <constraint firstItem="1VQ-cK-Twu" firstAttribute="top" secondItem="KPg-Zn-S2o" secondAttribute="topMargin" id="G2W-xc-ly2"/>
+                            <constraint firstItem="CAI-Vn-lci" firstAttribute="leading" secondItem="KPg-Zn-S2o" secondAttribute="leadingMargin" constant="-20" id="GEa-z5-p8N"/>
+                            <constraint firstItem="jZj-Xq-NRo" firstAttribute="centerX" secondItem="KPg-Zn-S2o" secondAttribute="centerX" id="GsU-Ag-VEb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CAI-Vn-lci" secondAttribute="trailing" constant="-20" id="PEk-8X-Agq"/>
+                            <constraint firstItem="Cw3-o4-TGT" firstAttribute="top" secondItem="1VQ-cK-Twu" secondAttribute="bottom" id="SDj-e1-oOO"/>
+                            <constraint firstItem="jZj-Xq-NRo" firstAttribute="height" secondItem="1VQ-cK-Twu" secondAttribute="height" multiplier="1:20" id="V5h-wQ-D5D"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gTh-fb-kx3" secondAttribute="trailing" id="Vda-LM-BrA"/>
+                            <constraint firstItem="gTh-fb-kx3" firstAttribute="leading" secondItem="KPg-Zn-S2o" secondAttribute="leadingMargin" id="YOS-28-Nls"/>
+                            <constraint firstItem="gTh-fb-kx3" firstAttribute="top" secondItem="CAI-Vn-lci" secondAttribute="bottom" constant="20" id="gR8-qF-Ia7"/>
+                            <constraint firstItem="CAI-Vn-lci" firstAttribute="top" secondItem="KPg-Zn-S2o" secondAttribute="topMargin" id="gsI-D4-nh0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1VQ-cK-Twu" secondAttribute="trailing" constant="-20" id="iTw-O3-NUJ"/>
+                            <constraint firstItem="iWV-ab-w38" firstAttribute="height" secondItem="1VQ-cK-Twu" secondAttribute="height" multiplier="1:20" id="l1x-zm-V8j"/>
+                            <constraint firstItem="1VQ-cK-Twu" firstAttribute="leading" secondItem="KPg-Zn-S2o" secondAttribute="leadingMargin" constant="-20" id="osA-qq-4Rl"/>
+                            <constraint firstItem="Cw3-o4-TGT" firstAttribute="top" secondItem="jZj-Xq-NRo" secondAttribute="bottom" constant="100" id="whl-9X-fNR"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7YB-Il-dOZ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="CAI-Vn-lci" id="UJc-9h-gfK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bfv-oA-CNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1236" y="-1011"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="Fdc-I7-vAk">
             <objects>
@@ -1055,6 +1154,9 @@
                                 <state key="normal" title="Написать нам">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="T4J-5i-J59" kind="presentation" modalTransitionStyle="coverVertical" id="qft-2T-ZPp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

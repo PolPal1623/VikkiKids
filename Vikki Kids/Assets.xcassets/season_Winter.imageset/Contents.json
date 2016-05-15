@@ -2,7 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "season_Winter.pdf"
+      "filename" : "season_Winter.pdf",
+      "scale" : "1x"
     }
   ],
   "info" : {

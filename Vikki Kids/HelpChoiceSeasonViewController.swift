@@ -111,7 +111,7 @@ class HelpChoiceSeasonViewController: UIViewController, UIPickerViewDataSource, 
         
         let titleData = arrayWeek[row]
         
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName: UIFont(name: "AppleSDGothicNeo-Thin", size: 38.0)!,NSForegroundColorAttributeName:UIColor.whiteColor() ])
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName: UIFont(name: "AppleSDGothicNeo-Thin", size: 34.0)!,NSForegroundColorAttributeName:UIColor.whiteColor() ])
         
         pickerLabel.attributedText = myTitle
         

@@ -12,6 +12,7 @@ import Alamofire
 import AlamofireImage
 import Kanna
 import SwiftyJSON
+import AVFoundation // Звуки
 
 // Класс SaveListRealmForVC для объектов хранимых в памяти
 class SaveListRealmForVC: Object {
@@ -50,6 +51,8 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
     //===================================//
     static let sharedManager = ViewController() // Переменная для передачи данных в другие классы
     
+    var musicPlayer: AVAudioPlayer! // Проигрыватель звуковых файлов
+    
     var arrayURL = [(name: String, photoURLString: String)]() // Переменная для парсинга адресов изображения
     var arrayJSON = [(name: String, photoURLString: String)]() // Переменная для парсинга адресов изображения
     var nameArray = 0 // Переменная для присвоения имен изображениям типа 0,1,2,3...
@@ -64,6 +67,7 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
     
     var repiatAnimationMainMenuButton = true // Для выбора направления анимации при нажатии mainMenu
     var saveAnimationMainMenuButton = true // Переменная для первоначального положения mainMenu
+    var firstLaunchBool = true // Переменная: первый запуск приложения
     
     var counterEarsForm = 0 // Счетчик для выбора типа ушей
     var counterHood = 0 // Счетчик для выбора типа шапки
@@ -229,6 +233,8 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
                     self.flash.backgroundColor = UIColor.whiteColor()
                     }, completion: nil)
                 
+                self.playSound() // Звук снимка
+                
                 UIView.animateWithDuration(0.1, delay: 0.1, options: .CurveEaseOut, animations: {
                     self.flash.backgroundColor = UIColor.clearColor()
                     }, completion: nil)
@@ -280,13 +286,41 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
             }, completion: nil)
             
         //----------------- Сообщение об удачном создании конверта
-        alert("Ваш конверт сохранён", message: "Для заказа данного коверта перейдите в раздел Галерея и выберете его ")
+            if firstLaunchBool {
+                alert("Ваш конверт сохранён в Галерее", message: " ")
+                firstLaunchBool = false
+            }
         }
     }
     
     //===================================//
     // MARK: - Кастомные методы
     //===================================//
+    
+    //-----------------------------------// Метод определяет первый запуск
+    func firstLaunch() {
+        let launchedBefore = NSUserDefaults.standardUserDefaults().boolForKey("launchedBefore")
+        if launchedBefore  {
+            firstLaunchBool = false
+        }
+        else {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "launchedBefore")
+        }
+    }
+    
+    //-----------------------------------// Метод для звука фото
+    func playSound() {
+        
+        let musicPath = NSBundle.mainBundle().URLForResource("foto", withExtension: "wav")! // Путь к звуковому файлу
+        
+        musicPlayer = try! AVAudioPlayer(contentsOfURL: musicPath, fileTypeHint: nil) // Инициализация плейера
+        
+        musicPlayer.numberOfLoops = 0 // Количество раз для проигрывания файла. При отрицательном значении повторяет вечно
+        
+        musicPlayer.volume = 0.2 // Уровень звука
+        
+        musicPlayer.play()
+    }
     
     //-----------------------------------// Метод для создания простого сообщения
     func alert(title: String, message: String) {
@@ -572,6 +606,7 @@ class ViewController: UIViewController, MainColorCollectionViewControllerDelegat
         //------------------ Перенос всех свойств класса этому экземпляру
         super.viewDidLoad()
         
+        firstLaunch() // Проверка первого запуска
         //parsingMainColorURL() // Метод для создания словаря из ссылок на изображение ткани
         parsingMainColorJSON() // Метод для создания словаря из ссылок JSON
        
